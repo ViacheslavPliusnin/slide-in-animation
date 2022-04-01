@@ -1,2 +1,9 @@
-export const white = '#fff';
-export const black = '#000';
+export const white = '#ffffff';
+export const black = '#000000';
+export const darkBlue = '#003366';
+export const red = '#ff0000';
+export const orange = '#ff9900';
+export const yellow = '#ffff00';
+export const green = '#33ff00';
+export const blue = '#0099ff';
+export const purple = '#6633ff';
