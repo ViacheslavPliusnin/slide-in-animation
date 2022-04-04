@@ -61,7 +61,6 @@ const App: React.FC = (): JSX.Element => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        markers: true,
         start: 'bottom bottom',
         scrub: 3,
         pin: true,
@@ -69,7 +68,7 @@ const App: React.FC = (): JSX.Element => {
     });
     tl.from(imageRef.current, {
       x: '-100%',
-      height: '100%',
+      height: '100vh',
       ease: 'power4.out',
     });
     itemEls.current.forEach((element) => {
