@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import generateId from './helpers/generate-id';
 import {
   white,
   black,
@@ -14,6 +15,8 @@ import {
   darkBlue,
 } from './constants/colors';
 import NyanCat from './assets/images/nyan-cat.gif';
+
+const letterIdGenerator = generateId();
 
 const Section = styled.div<{ color?: string }>`
   width: 100%;
@@ -61,7 +64,6 @@ const App: React.FC = (): JSX.Element => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'bottom bottom',
         scrub: 3,
         pin: true,
       },
@@ -101,7 +103,10 @@ const App: React.FC = (): JSX.Element => {
         <Image src={NyanCat} alt="Nyan Cat gif" ref={imageRef} />
         <SectionHeader ref={textRef}>
           {stringArray.map((item) => (
-            <Letter key={item} ref={(element) => (element ? itemEls.current.push(element) : null)}>
+            <Letter
+              ref={(element) => (element ? itemEls.current.push(element) : null)}
+              key={letterIdGenerator.next().value}
+            >
               {item}
             </Letter>
           ))}
